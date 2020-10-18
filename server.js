@@ -1,5 +1,6 @@
 const express = require('express');
 const db = require('./db/database');
+<<<<<<< HEAD
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -17,6 +18,17 @@ app.use('/api', apiRoutes);
 
 
 // Default response for any other request(Not Found) Catch all
+=======
+const PORT = process.env.PORT || 3001;
+const app = express();
+const apiRoutes = require('./routes/apiRoutes');
+// Express middleware
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+// Use apiRoutes
+app.use('/api', apiRoutes);
+// Default response for any other request(Not Found) Catch all other
+>>>>>>> feature/parties
 app.use((req, res) => {
   res.status(404).end();
 });
