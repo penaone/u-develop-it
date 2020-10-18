@@ -6,7 +6,7 @@ const inputCheck = require('../../utils/inputCheck');
 router.get('/voters', (req, res) => {
   const sql = `SELECT * FROM voters ORDER BY last_name`;
   const params = [];
-
+  
   db.all(sql, params, (err, rows) => {
     if (err) {
       res.status(500).json({ error: err.message });

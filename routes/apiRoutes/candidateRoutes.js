@@ -5,7 +5,8 @@ const inputCheck = require('../../utils/inputCheck');
 
 // Get all candidates
 router.get('/candidates', (req, res) => {
-  const sql = `SELECT candidates.*, parties.name
+  const sql =
+  `SELECT candidates.*, parties.name
   AS party_name
   FROM candidates
   LEFT JOIN parties
@@ -112,4 +113,5 @@ router.put('/candidate/:id', (req, res) => {
     });
   });
 });
+
 module.exports = router;
