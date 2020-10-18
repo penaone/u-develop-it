@@ -2,36 +2,21 @@ const express = require('express');
 const router = express.Router();
 const db = require('../../db/database');
 const inputCheck = require('../../utils/inputCheck');
-<<<<<<< HEAD
-
-router.get('/voters', (req, res) => {
-  const sql = `SELECT * FROM voters ORDER BY last_name`;
-  const params = [];
-  
-=======
 // Get all voters alphabetized by last name
 router.get('/voters', (req, res) => {
   const sql = `SELECT * FROM voters ORDER BY last_name`;
   const params = [];
->>>>>>> feature/parties
   db.all(sql, params, (err, rows) => {
     if (err) {
       res.status(500).json({ error: err.message });
       return;
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> feature/parties
     res.json({
       message: 'success',
       data: rows
     });
   });
 });
-<<<<<<< HEAD
-
-=======
 // Get single voter
 router.get('/voter/:id', (req, res) => {
   const sql = `SELECT * FROM voters WHERE id = ?`;
@@ -105,5 +90,4 @@ router.delete('/voter/:id', (req, res) => {
     res.json({ message: 'deleted', changes: this.changes });
   });
 });
->>>>>>> feature/parties
 module.exports = router;
